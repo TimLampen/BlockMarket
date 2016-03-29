@@ -1,0 +1,36 @@
+blockpoints:
+  1:
+    id: 1
+    name: "Stone"
+    blockpoints: "2:1"
+    restock: 10
+    maxcap: 500
+    reset: false
+  2:
+    id: 2
+    name: "Grass"
+    blockpoints: "5:3"
+    restock: 10
+    maxcap: 500
+    reset: false
+  3:
+    id: 42
+    name: "Iron Block"
+    blockpoints: "10:5"
+    restock: 10
+    maxcap: 500
+    reset: false
+  4:
+    id: 41
+    name: "Gold Block"
+    blockpoints: "15:6"
+    restock: 10
+    maxcap: 500
+    reset: false
+  5:
+    id: 57
+    name: "Diamond Block"
+    blockpoints: "20:10"
+    restock: 10
+    maxcap: 500
+    reset: false
