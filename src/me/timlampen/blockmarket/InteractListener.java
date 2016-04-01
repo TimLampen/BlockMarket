@@ -68,8 +68,11 @@ public class InteractListener implements Listener{
                     player.openInventory(inva);
                 }
                 else if(is!=null && is.getType()!=Material.AIR){
-                    int isAmount = is.getAmount();
                     is.setAmount(1);
+                    player.sendMessage(is.getType() + " - type, " + is.getDurability() + " - dura");
+                    if(p.shopItems.get(is)==null){
+                        player.sendMessage(p.shopItems.size() + "");
+                    }
                     if(p.shopItems.get(is).getAmountLeft()<=0){
                         player.sendMessage(ChatColor.RED + "Error: This item is sold out! Wait for it to be restocked.");
                     }

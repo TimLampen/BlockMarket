@@ -25,7 +25,6 @@ public class Main extends JavaPlugin{
     @Override
     public void onEnable(){
         getCommand("bmk").setExecutor(new CommandHandler(this));
-        Bukkit.getPluginManager().registerEvents(new InteractListener(this), this);
         generator = new InventoryGenerator(this);
         if(!new File(getDataFolder() + "/config.yml").exists()){
             saveDefaultConfig();
@@ -46,6 +45,9 @@ public class Main extends JavaPlugin{
             int restock = getConfig().getInt("blockpoints." + s + ".restock");
             int maxcap = getConfig().getInt("blockpoints." + s + ".maxcap");
             boolean reset = getConfig().getBoolean("blockpoints." + s + ".reset");
+            if(shopItems.containsKey(new ItemStack(mat, 1 , durability))){
+                Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "ERORORORORO" + mat.toString());
+            }
             shopItems.put(new ItemStack(mat, 1, durability), new ShopItem(mat, name, buypoints, restock, maxcap, reset, durability));
             unsortedMap.put(new ItemStack(mat, 1, durability), sellpoints);
         }
@@ -68,6 +70,7 @@ public class Main extends JavaPlugin{
                 }
             }
         }.runTaskTimer(this, 20*60*60, 20*60*60);
+        Bukkit.getPluginManager().registerEvents(new InteractListener(this), this);
     }
 
     @Override
